@@ -15,6 +15,6 @@ class LoginView(RedirectView):
         Accpi=AccessApi("loginUrl",callback_url,'common/rpc')
         url=Accpi.post()
         print"url%s"%url
-        print"callback_url%s" % callback_url
+        print"callback_url%s" % host
         return redirect(url['result'])
 
