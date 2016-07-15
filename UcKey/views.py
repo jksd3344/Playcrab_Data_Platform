@@ -9,12 +9,12 @@ from tests import AccessApi
 
 class LoginView(RedirectView):
 
-    template_name='UcKey/login_index.html'
-
     def get(self,request):
         host=request.get_host()
         callback_url= "http://%s/userscheck/" % host
         Accpi=AccessApi("loginUrl",callback_url,'common/rpc')
         url=Accpi.post()
         print"url%s"%url
+        print"callback_url%s" % callback_url
         return redirect(url['result'])
+
