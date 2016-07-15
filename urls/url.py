@@ -4,8 +4,8 @@
 from django.conf.urls import url
 from django.contrib import admin
 
-from views import login_index
+from UcKey.views import LoginView
 urlpatterns = [
-    url(r'^login_index/', login_index.as_view(),name="login_index"),
+    url(r'^LoginView/', LoginView.as_view(),name="LoginView"),
 
 ]
