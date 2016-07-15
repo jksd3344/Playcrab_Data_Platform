@@ -8,4 +8,4 @@ from django.views.generic import TemplateView
 
 
 class login_index(TemplateView):
-    pass
+    template_name='UcKey/login_index.html'
