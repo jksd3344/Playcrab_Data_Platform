@@ -18,25 +18,21 @@ class AccessApi(object):
 
         ('loginUrl',"http://%s/userscheck/" % host,'common/rpc')
     '''
-    def __init__(self,current_method,callback_url,url_path):
+    def __init__(self,current_method,data,url_path):
         self.settings = {
             'api_url' : 'http://api.ucenter.playcrab.com/',
             'api_key' : '3158308647',
             'api_secret_key' : '454fceaa64e202256b295a7184272af4'
         }
-        self.data={
-            "callback":callback_url
-        }
         self.params = {
             'id': '1',
             'method': current_method,
-            'params': self.data,
+            'params': data,
             'jsonrpc': '2.0'
         }
 
         self.ApiUrl="%s%s" % (self.settings['api_url'],url_path)
         self.header_authorization_prefix = "PLAYCRAB"
-
 
 
     def post(self):
@@ -45,7 +41,6 @@ class AccessApi(object):
         header=self.ReHeader(self.params)
         r=requests.post(self.ApiUrl,data=json.dumps(self.params),headers=header)
         return json.loads(r.text)
-
 
 
     def ReHeader(self,params):
@@ -74,3 +69,27 @@ class AccessApi(object):
             else:
                 str_data += k + v + glue
         return str_data
+
+
+
+class Common(object):
+
+    def loginUrl(self, callback_url):
+        '''获取登陆地址'''
+        params = {}
+        params['callback'] = callback_url
+        Accepi = AccessApi('loginUrl', params, 'common/rpc')
+        return Accepi
+
+    def logoutUrl(self, callback_url):
+         params = {}
+         params['callback'] = callback_url
+         Accepi = AccessApi('logoutUrl', params, 'common/rpc')
+         return Accepi
+
+    def checkToken(self, token):
+         '''验证token'''
+         params = {}
+         params['token'] = token
+         Accepi = AccessApi('checkToken', params, 'common/rpc')
+         return Accepi
