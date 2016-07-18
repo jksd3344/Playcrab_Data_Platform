@@ -59,7 +59,7 @@ class CheckView(TemplateView):
             print("Roles_some\n", Roles_some)
             return JsonRes(json.dumps(self.User_failure))
 
-        request.sessionp["username"]=(User_some.get("result","")).get("name","")
+        request.session["username"]=(User_some.get("result","")).get("name","")
         print("session_name=",request.session.get("username",default=None))
         return JsonRes(json.dumps(data))
 
