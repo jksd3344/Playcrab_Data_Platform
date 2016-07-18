@@ -61,6 +61,8 @@ class CheckView(TemplateView):
             return JsonRes(json.dumps(self.User_failure))
 
         request.session["username"]=(User_some.get("result","")).get("name","")
-        print("session_name=",request.session.get("username",default=None),reverse(self.pattern_name, args=[]))
-        return redirect()
+        print("session_name=",request.session.get("username",default=None),reverse("login:show", args=[]))
+        return JsonRes(json.dumps(data))
 
+class show(TemplateView):
+    template_name="UcKey/login_index.html"
