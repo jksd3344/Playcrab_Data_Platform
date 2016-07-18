@@ -5,6 +5,7 @@
 import json
 from apps import Common
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView,RedirectView
@@ -74,14 +75,11 @@ class Index(TemplateView):
     template_name="UcKey/login_index.html"
 
     # @Session_vf
-    def Re_some(self,request):
+    def get(self,request):
         print("request\n",1,request)
-        return 1
+        return render(request,"UcKey/login_index.html")
 
-    def get_context_data(self,**kwargs):
-        context=super(Index,self).get_context_data(**kwargs)
-        context["some"]=self.Re_some()
-        return context
+
 
 
 
