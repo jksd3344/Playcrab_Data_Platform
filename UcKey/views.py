@@ -8,7 +8,7 @@ from tests import Common
 
 
 class LoginView(RedirectView):
-
+    quert_string=False
     def get(self,request):
         host=request.get_host()
         callback_url= "http://%s/login/CheckView/"% host
