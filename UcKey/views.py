@@ -40,5 +40,5 @@ class CheckView(TemplateView):
         token = request.GET.get("token")
         Com=Common()
         data=Com.checkToken(token)
-        JsonRes(json.dumps(data))
+        return JsonRes(json.dumps(data))
 
