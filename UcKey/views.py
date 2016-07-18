@@ -35,8 +35,6 @@ class LoginView(RedirectView):
 # {u'jsonrpc': u'2.0', u'id': u'1', u'result': 1125}
 class CheckView(TemplateView):
 
-    template_name="UcKey/login_index.html"
-
     def __init__(self):
         self.Com=Common()
         self.Parameter_missing={"error":"Token_Parameter_missing"}
@@ -62,7 +60,8 @@ class CheckView(TemplateView):
 
         request.session["username"]=(User_some.get("result","")).get("name","")
         print("session_name=",request.session.get("username",default=None),reverse("UcKey:show", args=[]))
-        return JsonRes(json.dumps(data))
+        return redirect(reverse("UcKey:show", args=[]))
 
-class show(TemplateView):
+
+class Index(TemplateView):
     template_name="UcKey/login_index.html"
