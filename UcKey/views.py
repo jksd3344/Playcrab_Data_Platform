@@ -65,7 +65,7 @@ class CheckView(TemplateView):
 
 def Session_vf(func):
     def Refunc(a):
-        print("sss=",a)
+        print("sss=\n",a)
         return func
     return Refunc
 
@@ -75,7 +75,7 @@ class Index(TemplateView):
 
     @Session_vf
     def Re_some(self,request):
-        print("request",1,request)
+        print("request\n",1,request)
         return 1
 
     def get_context_data(self,**kwargs):
