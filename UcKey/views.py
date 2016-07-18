@@ -13,8 +13,8 @@ class LoginView(RedirectView):
         host=request.get_host()
         callback_url= "http://%s/login/CheckView/"% host
         Com=Common()
-        url=Com.loginUrl(callback_url)
-        return redirect(url['result'])
+        data=Com.loginUrl(callback_url)
+        return redirect(data['result'])
 
 
 class CheckView(TemplateView):
@@ -25,3 +25,11 @@ class CheckView(TemplateView):
     def get(self,request):
         token = request.GET.get("token")
         Com=Common()
+        data=Com.checkToken(token)
+        print("data=%s"%data)
+
+
+    def get_context_data(self, **kwargs):
+        context = super(CheckView, self).get_context_data(**kwargs)
+        context['Node'] = 0
+        return context
