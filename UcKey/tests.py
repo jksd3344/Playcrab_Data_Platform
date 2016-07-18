@@ -74,29 +74,47 @@ class AccessApi(object):
 
 class Common(object):
 
+    def __init__(self):
+        self.params={}
+        self.url_path_c='common/rpc'
+        self.url_path_u = 'user/rpc'
+
     def loginUrl(self, callback_url):
         '''获取登陆地址'''
-        params = {}
-        params['callback'] = callback_url
-        Accepi = AccessApi('loginUrl', params, 'common/rpc')
+
+        self.params['callback'] = callback_url
+        Accepi = AccessApi('loginUrl', self.params, self.url_path_c)
         return Accepi.post()
 
     def logoutUrl(self, callback_url):
-         params = {}
-         params['callback'] = callback_url
-         Accepi = AccessApi('logoutUrl', params, 'common/rpc')
+
+         self.params['callback'] = callback_url
+         Accepi = AccessApi('logoutUrl', self.params, self.url_path_c)
          return Accepi.post()
 
     def checkToken(self, token):
          '''验证token'''
-         params = {}
-         params['token'] = token
-         Accepi = AccessApi('checkToken', params, 'common/rpc')
+
+         self.params['token'] = token
+         Accepi = AccessApi('checkToken', self.params,self.url_path_c)
          return Accepi.post()
 
-    # def getUserVyId(self,uid=None):
-    #     ''''''
-    #     if
+
+    def getUserById(self,uid):
+        '''获取用户信息'''
+
+        self.params['id'] = uid
+        Accepi = AccessApi('getUserById',self.params,self.url_path_u)
+        return Accepi.post()
+
+
+    def getRolesById(self,uid):
+        '''获取用户在本项目角色'''
+
+        self.params['id'] = uid
+        Accepi = AccessApi('getRolesById',self.params,self.url_path_u)
+        return Accepi.post()
+
 
 
 
