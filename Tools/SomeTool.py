@@ -27,6 +27,7 @@ class JsonRes(HttpResponse):
 def Session_vf(func):
     '''
         session验证
+        session过期时间:30min
         FuncSelf:self
         FuncRequest:request
     '''
