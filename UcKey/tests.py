@@ -79,17 +79,17 @@ class Common(object):
         params = {}
         params['callback'] = callback_url
         Accepi = AccessApi('loginUrl', params, 'common/rpc')
-        return Accepi
+        return Accepi.post()
 
     def logoutUrl(self, callback_url):
          params = {}
          params['callback'] = callback_url
          Accepi = AccessApi('logoutUrl', params, 'common/rpc')
-         return Accepi
+         return Accepi.post()
 
     def checkToken(self, token):
          '''验证token'''
          params = {}
          params['token'] = token
          Accepi = AccessApi('checkToken', params, 'common/rpc')
-         return Accepi
+         return Accepi.post()
