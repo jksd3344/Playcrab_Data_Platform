@@ -61,7 +61,7 @@ class CheckView(TemplateView):
             return JsonRes(json.dumps(self.User_failure))
 
         request.session["username"]=(User_some.get("result","")).get("name","")
-        print("session_name=",request.session.get("username",default=None),reverse("login:show", args=[]))
+        print("session_name=",request.session.get("username",default=None),reverse("UcKey:show", args=[]))
         return JsonRes(json.dumps(data))
 
 class show(TemplateView):
