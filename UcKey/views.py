@@ -74,7 +74,7 @@ class Index(TemplateView):
     template_name="UcKey/login_index.html"
 
     @Session_vf
-    def Re_some(self):
+    def Re_some(self,request):
         return 1
 
     def get_context_data(self,**kwargs):
