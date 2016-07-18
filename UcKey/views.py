@@ -3,8 +3,8 @@
 
 
 import json
-from apps import Common
-from Tools.tool import *
+from Tools.LoginApin import Common
+from Tools.SomeTool import *
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.core.urlresolvers import reverse
