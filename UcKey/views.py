@@ -5,6 +5,7 @@ from django.conf import settings
 from django.views.generic import TemplateView,RedirectView
 from django.shortcuts import redirect
 from django.http import HttpResponse
+from django.core.urlresolvers import reverse
 from tests import Common
 import json
 
@@ -60,6 +61,6 @@ class CheckView(TemplateView):
             return JsonRes(json.dumps(self.User_failure))
 
         request.session["username"]=(User_some.get("result","")).get("name","")
-        print("session_name=",request.session.get("username",default=None),settings.SESSION_COOKIE_NAME)
-        return JsonRes(json.dumps(data))
+        print("session_name=",request.session.get("username",default=None),reverse(self.pattern_name, args=[]))
+        return redirect()
 
