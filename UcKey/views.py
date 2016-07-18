@@ -73,7 +73,7 @@ def Session_vf(func):
 class Index(TemplateView):
     template_name="UcKey/login_index.html"
 
-    @Session_vf()
+    @Session_vf("some")
     def Re_some(self):
         return 1
 
