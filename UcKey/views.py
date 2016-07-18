@@ -67,6 +67,8 @@ class CheckView(TemplateView):
 def Session_vf(func):
     def Refunc(a,b):
         print("sss=\n",a,b)
+        f=b.session.get("username")
+        print("f=",f)
         return func(a,b)
     return Refunc
 
