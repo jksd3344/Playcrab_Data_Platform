@@ -92,7 +92,7 @@ class Common(object):
          Accepi = AccessApi('logoutUrl', self.params, self.url_path_c)
          return Accepi.post()
 
-    def checkToken(self, token):
+    def CheckToken(self, token):
          '''验证token'''
 
          self.params['token'] = token
