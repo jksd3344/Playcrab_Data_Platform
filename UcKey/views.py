@@ -65,11 +65,13 @@ class CheckView(TemplateView):
         return redirect(reverse("UcKey:Index", args=[]))
 
 def Session_vf(func):
-    def Refunc(a,b):
-        print("sss=\n",a,b)
-        f=b.session.get("username")
-        print("f=",f)
-        return func(a,b)
+    '''session验证'''
+    def Refunc(FuncSelf,FuncRequest):
+        print("sss=\n",FuncSelf,FuncRequest)
+        username=FuncRequest.session.get("username")
+        print("f=",username)
+        return redirect(reverse("UcKey:text", args=[]))
+        # return func(FuncSelf,FuncRequest)
     return Refunc
 
 
@@ -84,6 +86,7 @@ class Index(TemplateView):
 
 
 
-
+class text(TemplateView):
+    template_name = "UcKey/login_index.html"
 
 
