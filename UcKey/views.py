@@ -18,6 +18,6 @@ class LoginView(RedirectView):
 
 
 class CheckView(RedirectView):
+    template_name="UcKey/login_index.html"
 
-    pass
 
