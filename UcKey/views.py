@@ -1,13 +1,14 @@
 #!/usr/bin/python
 #coding=utf-8
 
-from django.conf import settings
-from django.views.generic import TemplateView,RedirectView
-from django.shortcuts import redirect
-from django.http import HttpResponse
-from django.core.urlresolvers import reverse
-from tests import Common
+
 import json
+from apps import Common
+from django.http import HttpResponse
+from django.shortcuts import redirect
+from django.core.urlresolvers import reverse
+from django.views.generic import TemplateView,RedirectView
+
 
 
 class JsonRes(HttpResponse):
@@ -59,9 +60,15 @@ class CheckView(TemplateView):
             return JsonRes(json.dumps(self.User_failure))
 
         request.session["username"]=(User_some.get("result","")).get("name","")
-        print("session_name=",request.session.get("username",default=None),reverse("UcKey:Index", args=[]))
+
         return redirect(reverse("UcKey:Index", args=[]))
 
+def Session_vf(func):
+    def Refunc():
+        print("ssssssss")
+        return func
+    return Refunc
 
+@Session_vf
 class Index(TemplateView):
     template_name="UcKey/login_index.html"
