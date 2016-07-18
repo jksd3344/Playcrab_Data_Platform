@@ -18,5 +18,8 @@ class LoginView(RedirectView):
 
 
 class CheckView(TemplateView):
+
+    quert_string=False
     template_name="UcKey/login_index.html"
+
 
