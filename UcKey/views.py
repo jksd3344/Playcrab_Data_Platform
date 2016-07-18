@@ -75,6 +75,7 @@ class Index(TemplateView):
 
     @Session_vf
     def Re_some(self,request):
+        print("request",request)
         return 1
 
     def get_context_data(self,**kwargs):
