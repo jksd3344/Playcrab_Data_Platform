@@ -72,3 +72,16 @@ def Session_vf(func):
 @Session_vf
 class Index(TemplateView):
     template_name="UcKey/login_index.html"
+
+    def Re_some(self):
+        return 1
+
+    def get_context_data(self,**kwargs):
+        context=super(Index,self).get_context_data(**kwargs)
+        context["some"]=self.Re_some()
+        return context
+
+
+
+
+
