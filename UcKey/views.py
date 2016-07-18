@@ -64,16 +64,16 @@ class CheckView(TemplateView):
         return redirect(reverse("UcKey:Index", args=[]))
 
 def Session_vf(func):
-    def Refunc():
+    def Refunc(*args, **kw):
         print("ssssssss")
-        return func
+        return func(*args, **kw)
     return Refunc
 
 
 class Index(TemplateView):
     template_name="UcKey/login_index.html"
 
-    @Session_vf
+    @Session_vf()
     def Re_some(self):
         return 1
 
