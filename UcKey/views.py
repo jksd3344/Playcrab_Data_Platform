@@ -60,6 +60,6 @@ class CheckView(TemplateView):
             return JsonRes(json.dumps(self.User_failure))
 
         request.session["username"]=(User_some.get("result","")).get("name","")
-        print("session_name=",request.session.get("username",default=None))
+        print("session_name=",request.session.get("username",default=None),settings.SESSION_COOKIE_NAME)
         return JsonRes(json.dumps(data))
 
