@@ -64,8 +64,8 @@ class CheckView(TemplateView):
         return redirect(reverse("UcKey:Index", args=[]))
 
 def Session_vf(func):
-    def Refunc(a,b):
-        print("sss=",a,b)
+    def Refunc(a,b,c):
+        print("sss=",a,b,c)
         return func
     return Refunc
 
