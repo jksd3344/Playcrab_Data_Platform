@@ -39,7 +39,7 @@ class CheckView(TemplateView):
     template_name="UcKey/login_index.html"
 
     def __init__(self):
-        self.Com=Common
+        self.Com=Common()
         self.Parameter_missing={"error":"参数丢失"}
         self.Acquisition_failure = {"error": "获取失败"}
 
@@ -50,6 +50,7 @@ class CheckView(TemplateView):
 
         data=self.Com.checkToken(token)
         if data['result'] == False and data == None:
+            print("data=%s"%data)
             return JsonRes(json.dumps(self.Acquisition_failure))
 
         User_some=self.Com.getUserById(data['result'])
