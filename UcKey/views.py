@@ -59,8 +59,8 @@ class CheckView(TemplateView):
             return JsonRes(json.dumps(self.User_failure))
 
         request.session["username"]=(User_some.get("result","")).get("name","")
-        print("session_name=",request.session.get("username",default=None),reverse("UcKey:show", args=[]))
-        return redirect(reverse("UcKey:show", args=[]))
+        print("session_name=",request.session.get("username",default=None),reverse("UcKey:Index", args=[]))
+        return redirect(reverse("UcKey:Index", args=[]))
 
 
 class Index(TemplateView):
