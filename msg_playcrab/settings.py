@@ -17,7 +17,7 @@ import os
 #
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__))).replace('\\', '/')
 TEMPLATES_PATH = os.path.join(BASE_DIR, 'templates')
-
+SESSION_COOKIE_AGE=60*30
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
