@@ -93,3 +93,20 @@ class Common(object):
          params['token'] = token
          Accepi = AccessApi('checkToken', params, 'common/rpc')
          return Accepi.post()
+
+    # def getUserVyId(self,uid=None):
+    #     ''''''
+    #     if
+
+
+
+
+
+
+
+
+
+
+
+
+
