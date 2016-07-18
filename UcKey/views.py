@@ -66,7 +66,7 @@ class CheckView(TemplateView):
 def Session_vf(func):
     def Refunc(*args, **kw):
         print("sss=",args,kw)
-        return func(*args, **kw)
+        return func
     return Refunc
 
 
