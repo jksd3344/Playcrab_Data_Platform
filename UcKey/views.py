@@ -8,7 +8,7 @@ from tests import Common
 
 
 class LoginView(RedirectView):
-    quert_string=False
+
     def get(self,request):
         host=request.get_host()
         callback_url= "http://%s/login/CheckView/"% host
@@ -19,7 +19,9 @@ class LoginView(RedirectView):
 
 class CheckView(TemplateView):
 
-    quert_string=False
+    quert_string=True
     template_name="UcKey/login_index.html"
 
-
+    def get(self,request):
+        token = request.GET.get("token")
+        Com=Common()
