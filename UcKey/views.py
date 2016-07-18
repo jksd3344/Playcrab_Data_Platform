@@ -17,6 +17,6 @@ from tests import Common
 #         return redirect(url['result'])
 
 
-class CheckView(RedirectView):
+class some(RedirectView):
     template_name="UcKey/login_index.html"
 
