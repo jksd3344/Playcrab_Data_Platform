@@ -69,7 +69,7 @@ def Session_vf(func):
         return func
     return Refunc
 
-@Session_vf
+# @Session_vf
 class Index(TemplateView):
     template_name="UcKey/login_index.html"
 
