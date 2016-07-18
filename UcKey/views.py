@@ -59,6 +59,9 @@ class CheckView(TemplateView):
             print("Roles_some\n", Roles_some)
             return JsonRes(json.dumps(self.User_failure))
 
+        print("settings.SESSION_COOKIE_NAME", settings.SESSION_COOKIE_NAME)
+        response = HttpResponse()
+        response.set_cookie(settings.SESSION_COOKIE_NAME, User_some['result']['name'])
 
         print("settings.SESSION_COOKIE_NAME",settings.SESSION_COOKIE_NAME)
 
