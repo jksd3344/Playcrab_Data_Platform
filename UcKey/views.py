@@ -69,10 +69,11 @@ def Session_vf(func):
         return func
     return Refunc
 
-# @Session_vf
+
 class Index(TemplateView):
     template_name="UcKey/login_index.html"
 
+    @Session_vf
     def Re_some(self):
         return 1
 
