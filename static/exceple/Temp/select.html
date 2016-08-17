@@ -1,0 +1,89 @@
+{% block select %}
+
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* 防止水平滚动条 */
+        overflow-x: hidden;
+
+    }
+    /* IE 6 不支持 max-height
+     * 我们使用 height 代替，但是这会强制菜单总是显示为那个高度
+     */
+    * html .ui-autocomplete {
+        height: 100px;
+        z-index: 1000;
+    }
+</style>
+
+<script>
+
+    $(function() {
+        var availableTags = [
+            "数据中心",
+            "运维中心",
+            "日志中心"
+        ];
+        $( "#SearchFunc" ).autocomplete({
+            source: availableTags
+        });
+    });
+</script>
+<div class="navbar-default sidebar" role="navigation">
+    <div class="sidebar-nav navbar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="sidebar-search">
+                <div class="input-group custom-search-form">
+                    <input type="text" class="form-control" id="SearchFunc">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                             </span>
+                </div>
+                <!-- /input-group -->
+            </li>
+            <li>
+                <a href="../../../Downloads/startbootstrap-sb-admin-2-1.0.8/pages/flot.html"><i class="fa fa-dashboard fa-fw"></i>  数据中心<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/DataCenter/Index/">Basic data</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i>  运维中心<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="../../../Downloads/startbootstrap-sb-admin-2-1.0.8/pages/flot.html">Flot Charts</a>
+                    </li>
+                    <li>
+                        <a href="../../../Downloads/startbootstrap-sb-admin-2-1.0.8/pages/morris.html">Morris.js Charts</a>
+                    </li>
+                </ul>
+                <!-- /.nav-second-level -->
+            </li>
+            <!--<li>-->
+            <!--<a href="../../../Downloads/startbootstrap-sb-admin-2-1.0.8/pages/tables.html"><i class="fa fa-table fa-fw"></i>  管理中心(Management Center)<span class="fa arrow"></span></a>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<a href="../../../Downloads/startbootstrap-sb-admin-2-1.0.8/pages/forms.html"><i class="fa fa-edit fa-fw"></i>  模版中心(Template center)<span class="fa arrow"></span></a>-->
+            <!--</li>-->
+            <li>
+                <a href="#"><i class="fa fa-files-o fa-fw"></i>  日志中心<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="/LogCenter/Index/1/">User list</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!-- /.sidebar-collapse -->
+</div>
+
+
+
+{% endblock %}

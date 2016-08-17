@@ -8,6 +8,12 @@ from UcKey.views import *
 urlpatterns = [
     url(r'^LoginView/', LoginView.as_view(),name="LoginView"),
     url(r'^CheckView/',CheckView.as_view(),name="CheckView"),
-    url(r'^Index/', Index.as_view(), name="Index"),
-    url(r'^text/', text.as_view(), name="text")
+
 ]
+
+
+
+
+
+
+

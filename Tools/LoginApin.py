@@ -14,18 +14,19 @@ import json
 
 class AccessApi(object):
 
-    '''
-        current_method:发送命令(可选)
-        callback_url:发送回调地址(可选)
-        url_path:访问地址(定值)
 
-        ('loginUrl',"http://%s/userscheck/" % host,'common/rpc')
-    '''
     def __init__(self,current_method,data,url_path):
+        '''
+
+        :param current_method: current_method:  发送命令(可选)
+        :param data: {'callback_url':callback_url} 内部有发送回调地址(可选)
+        :param url_path: url_path:  访问地址(定值)
+        ('loginUrl',"http://%s/userscheck/" % host,'common/rpc')
+        '''
         self.settings = {
             'api_url' : 'http://api.ucenter.playcrab.com/',
-            'api_key' : '3158308647',
-            'api_secret_key' : '454fceaa64e202256b295a7184272af4'
+            'api_key' : '3456599874',
+            'api_secret_key' : '8ae30541db3f29522aafced6520babf0'
         }
         self.params = {
             'id': '1',
@@ -47,7 +48,11 @@ class AccessApi(object):
 
 
     def ReHeader(self,params):
-        '''获取访问头'''
+        '''
+        获取访问头
+        :param params:
+        :return:
+        '''
 
         date = time.strftime('%Y-%m-%dT%X+08:00', time.localtime())
         token_str = '%s%s%s' % (self.convertDictToStr({'params': params}), self.settings['api_secret_key'], date)
@@ -58,7 +63,11 @@ class AccessApi(object):
 
 
     def convertDictToStr(self,params):
-        '''字典转化成字符串'''
+        '''
+        字典转化成字符串
+        :param params:
+        :return:
+        '''
 
         glue=""
         param_data = params.get('params', '')
@@ -83,20 +92,34 @@ class Common(object):
         self.url_path_u = 'user/rpc'
 
     def loginUrl(self, callback_url):
-        '''获取登陆地址'''
+        '''
+        获取登陆地址
+        :param callback_url:
+        :return:
+        '''
 
         self.params['callback'] = callback_url
         Accepi = AccessApi('loginUrl', self.params, self.url_path_c)
         return Accepi.post()
 
     def logoutUrl(self, callback_url):
+        '''
 
-         self.params['callback'] = callback_url
-         Accepi = AccessApi('logoutUrl', self.params, self.url_path_c)
-         return Accepi.post()
+        :param callback_url:
+        :return:
+        '''
+        self.params['callback'] = callback_url
+        Accepi = AccessApi('logoutUrl', self.params, self.url_path_c)
+        return Accepi.post()
+
+
 
     def CheckToken(self, token):
-         '''验证token'''
+         '''
+         验证token
+         :param token:
+         :return:
+         '''
 
          self.params['token'] = token
          Accepi = AccessApi('checkToken', self.params,self.url_path_c)
@@ -104,7 +127,11 @@ class Common(object):
 
 
     def getUserById(self,uid):
-        '''获取用户信息'''
+        '''
+        获取用户信息
+        :param uid:
+        :return:
+        '''
 
         self.params['id'] = uid
         Accepi = AccessApi('getUserById',self.params,self.url_path_u)
@@ -112,12 +139,15 @@ class Common(object):
 
 
     def getRolesById(self,uid):
-        '''获取用户在本项目角色'''
+        '''
+        获取用户在本项目角色
+        :param uid:
+        :return:
+        '''
 
         self.params['id'] = uid
         Accepi = AccessApi('getRolesById',self.params,self.url_path_u)
         return Accepi.post()
-
 
 
 

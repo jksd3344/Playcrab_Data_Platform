@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css">
+    <script src="/static/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="jqueryui/style.css">
+</head>
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* 防止水平滚动条 */
+        overflow-x: hidden;
+    }
+    /* IE 6 不支持 max-height
+     * 我们使用 height 代替，但是这会强制菜单总是显示为那个高度
+     */
+    * html .ui-autocomplete {
+        height: 100px;
+    }
+</style>
+<script>
+    $(function() {
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+        $( "#tags" ).autocomplete({
+            source: availableTags
+        });
+    });
+</script>
+
+
+
+
+
+
+<body>
+
+<div class="ui-widget">
+    <label for="tags">标签：</label>
+    <input id="tags">
+</div>
+
+
+</body>
+</html>

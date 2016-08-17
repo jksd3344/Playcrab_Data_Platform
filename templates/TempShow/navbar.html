@@ -1,0 +1,104 @@
+{% block narbar%}
+
+<!--左侧停靠-->
+<ul class="nav navbar-nav">
+
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">数据中心<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="/DataCenter/Index/">查看数据</a></li>
+            <li><a href="#">搜索</a></li>
+
+        </ul>
+    </li>
+
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">运维中心<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">全局概览</a></li>
+            <li class="divider"></li>
+            <li><a href="#">项目运维</a></li>
+            <li><a href="#">工作流运维</a></li>
+            <li><a href="#">任务运维</a></li>
+        </ul>
+    </li>
+
+
+
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">管理中心<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">项目管理</a></li>
+            <li><a href="#">工作流管理</a></li>
+            <li><a href="#">源数据管理</a></li>
+            <li><a href="#">调度管理</a></li>
+            <li><a href="#">监控管理</a></li>
+            <li><a href="#">告警管理</a></li>
+
+            <li class="divider"></li>
+
+            <li><a href="#">HIVE数据库/表管理</a></li>
+            <li><a href="#">REPORT数据库/表管理</a></li>
+
+            <li class="divider"></li>
+            <li><a href="#">ETL_MANAGE数据库/表管理</a></li>
+            <li><a href="#">本地数据管理</a></li>
+            <li><a href="#">HDFS数据管理</a></li>
+        </ul>
+    </li>
+
+
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">模版中心<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">源数据模板</a></li>
+            <li><a href="#">etl_data任务模板</a></li>
+            <li><a href="#">dw2dm任务模板</a></li>
+            <li class="divider"></li>
+            <li><a href="#">dm2report任务模板</a></li>
+        </ul>
+    </li>
+
+
+
+
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">日志中心<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="/LogCenter/Index/1/">用户列表</a></li>
+            <li><a href="#">登录历史</a></li>
+            <li><a href="#">操作历史</a></li>
+            <li class="divider"></li>
+            <li><a href="#">告警历史</a></li>
+        </ul>
+    </li>
+
+
+
+
+
+    <!--右侧停靠-->
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown" style="position: absolute;right:80px">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i></a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                </li>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+</ul>
+{% endblock%}

@@ -19,5 +19,11 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^login/',include('urls.UcKeyurl',namespace='UcKey',app_name='Uckey'),name='login')
+    url(r'^login/',include('urls.UcKeyurl',namespace='UcKey',app_name='Uckey'),name='login'),
+    url(r'^DataCenter/', include('urls.DataCenterurl', namespace='DataCenter', app_name='DataCenter'), name='DataCenter'),
+    url(r'^LogCenter/', include('urls.LogCenterurl', namespace='LogCenter', app_name='LogCenter'), name='LogCenter')
 ]
+
+
+
+

@@ -1,0 +1,63 @@
+{% extends "Temp/temp.html" %}
+{% block title%}MSG{%endblock%}
+
+{% block MsgContent %}
+
+
+<div>
+
+    <div class="row">
+         <div class="col-lg-12">
+              <h1 class="page-header">Data center</h1>
+         </div>
+    </div>
+    <input type="text" name="username" id="username" value="showu">
+    <input type="text" name="passward" id="passward" value="showp">
+    <input type="submit" value="sub" onclick="takepassward()">
+
+
+
+</div>
+
+<script type="text/javascript">
+    
+    function takepassward()
+    {
+
+        var username = $("#username").val();
+        var passward = $("#passward").val();
+
+        $.ajax({
+            url: '/DataCenter/test/',
+            type: 'post',
+            data: {"username": username, "passward": passward},
+            success: function (msg) {
+                alert(msg)
+//                window.location.href="/DataCenter/Index/"
+            }
+        })
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

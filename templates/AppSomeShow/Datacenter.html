@@ -1,0 +1,73 @@
+{% extends "TempShow/temp.html" %}
+{% block title%}MSG{%endblock%}
+
+{% block MsgContent %}
+
+<div class="Navigation_show"  style=" border-bottom: 1px solid #e2e2e2;margin-bottom: 0px;">
+    <ol class="breadcrumb" style="margin-bottom: 0px;">
+        <li><a href="#">数据中心</a></li>
+        <!--<li><a href="#">2013</a></li>-->
+        <li class="active">基本数据 >></li>
+    </ol>
+</div>
+
+
+
+<div class="Photoframe">
+    <div class="content_show">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">基本数据(Data center)</h1>
+                </div>
+            </div>
+            <input type="text" name="username" id="username" value="showu">
+            <input type="text" name="passward" id="passward" value="showp">
+            <input type="submit" value="sub" onclick="takepassward()">
+
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function takepassward()
+    {
+
+        var username = $("#username").val();
+        var passward = $("#passward").val();
+
+        $.ajax({
+            url: '/DataCenter/test/',
+            type: 'post',
+            data: {"username": username, "passward": passward},
+            success: function (msg) {
+                alert(msg)
+//                window.location.href="/DataCenter/Index/"
+            }
+        })
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
